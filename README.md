@@ -1,6 +1,8 @@
-[bitbucket-cmd](https://www.npmjs.com/package/bitbucket-cmd)
+[cmd-bitbucket](https://www.npmjs.com/package/cmd-bitbucket)
 ========
 
+  This is original work of Dan Shumaker and is forked from https://github.com/danshumaker/cmd-bitbucket
+  
   Bitbucket command line interface  based on https://github.com/germanrcuriel/jira-cmd
 
   Currently it is able to do these things from the command line: 
@@ -23,7 +25,7 @@ Install [node.js](http://nodejs.org/).
 
 Then, in your shell type:
 
-	$ npm install -g bitbucket-cmd
+	$ npm install -g cmd-bitbucket
 
 ## Usage
 
@@ -46,7 +48,7 @@ Once you hit enter after the password then you should get this message:
 
     Information stored!
 
-This saves your credentials in the [home directory](https://github.com/danshumaker/bitbucket-cmd/pull/2) in a config rc `~/.bitbucketconfigrc` file.
+This saves your credentials in the [home directory](https://github.com/danshumaker/cmd-bitbucket/pull/2) in a config rc `~/.bitbucketconfigrc` file.
 
 #### Reviewers [Change the reviewers in the ~/.bitbucketconfigrc file]
 
