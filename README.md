@@ -29,6 +29,26 @@ Then, in your shell type:
 
 ## Usage
 
+##### Getting the username and password
+  * Getting username is easy
+	* Click on your photo in the down left corner
+	* Click on "integrations"
+	* Click on "account settings" under general 
+	* here on this page you'll be shown your username under "bitbucket profile settings".
+	* note it down. you'll require to use this username while configuring cmd-bitbucket.
+First we'll have to take out your username and password from your bitbucket account. Go to your bitbucket account account 
+ * Click on your photo in the down left corner
+ * Click on the "integrations"
+ * Click on the "app passwords"
+ * Click on "create app passwords"
+ * Give a name like cmdbitbucket
+ * Click on all the permission you want to give.
+ * I advice to give read/write permissions for projects,repositories,pull requests,issues.
+ * Now click on create.
+ * Next up you'll be shown a password for that.Note this password down.
+ * You'll have to enter this password in next section.
+ * 
+
 ##### First use
 
     $ bitbucket
