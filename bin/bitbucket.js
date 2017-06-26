@@ -20,7 +20,10 @@ requirejs([
     '../lib/auth',
     '../lib/bitbucket/pr',
 ], function (program, config, auth, pr) {
-
+     function finalCb(){
+       process.exit();
+     }
+     
     program
         .version('v0.3.0');
 
@@ -33,7 +36,7 @@ requirejs([
         .option('-m, --merge <pr_num>', 'Merge Pull Request', String)
         .option('-S, --merge_strategy <Strategy>', 'Merging Strategy for Pull Requests (merge_commit/squash)', String)
         .option('-M, --message <pr_num>', 'Message for merge/creating PR', String)
-        .option('-c, --create <title>', 'Create Pull Request', String)
+        .option('-c, --create ', 'Create Pull Request')
         .option('-s, --source <branch name>', 'Source Branch', String)
         .option('-t, --to <branch name>', 'Destination Branch', String)
         .option('-d, --diff <pr_num>', 'Diff Pull Request', String)
@@ -52,7 +55,7 @@ requirejs([
                         pr.list(options);
                     }
                     if (options.create) {
-                        pr.create(options);
+                        pr.create(options, finalCb);
                     }
                     if (options.decline) {
                         pr.decline(options);
