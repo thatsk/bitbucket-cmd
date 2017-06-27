@@ -32,7 +32,9 @@ requirejs([
         .description('Operate on Pull Requests')
         .option('-l, --list', 'List only my Open Pull Requests')
         .option('-L, --listall', 'List all Open Pull Requests')
-        .option('-r, --merged', 'List Merged Pull Requests')
+        .option('-r, --review', 'List all Open Pull Requests to be reviewed by me')
+        .option('-b, --by <username>', 'List all Open Pull Requests created by username', String)
+        .option('-M, --merged', 'List Merged Pull Requests')
         .option('-m, --merge <pr_num>', 'Merge Pull Request', String)
         .option('-S, --merge_strategy <Strategy>', 'Merging Strategy for Pull Requests (merge_commit/squash)', String)
         .option('-M, --message <pr_num>', 'Message for merge/creating PR', String)
@@ -52,6 +54,12 @@ requirejs([
                         pr.list(options);
                     }
                     if (options.listall) {
+                        pr.list(options);
+                    }
+                    if (options.review) {
+                        pr.list(options);
+                    }
+                    if (options.by) {
                         pr.list(options);
                     }
                     if (options.create) {
