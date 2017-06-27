@@ -32,6 +32,7 @@ requirejs([
         .description('Operate on Pull Requests')
         .option('-l, --list', 'List only my Open Pull Requests')
         .option('-L, --listall', 'List all Open Pull Requests')
+        .option('-G, --global', 'List all my Open Pull Requests across all repo')
         .option('-r, --review', 'List all Open Pull Requests to be reviewed by me')
         .option('-b, --by <username>', 'List all Open Pull Requests created by username', String)
         .option('-M, --merged', 'List Merged Pull Requests')
@@ -51,16 +52,19 @@ requirejs([
             auth.setConfig(function (auth) {
                 if (auth) {
                     if (options.list) {
-                        pr.list(options);
+                        pr.list(options, finalCb);
                     }
                     if (options.listall) {
-                        pr.list(options);
+                        pr.list(options, finalCb);
                     }
                     if (options.review) {
-                        pr.list(options);
+                        pr.list(options, finalCb);
                     }
                     if (options.by) {
-                        pr.list(options);
+                        pr.list(options, finalCb);
+                    }
+                    if (options.global) {
+                        pr.globalList(options, finalCb);
                     }
                     if (options.create) {
                         pr.create(options, finalCb);
