@@ -30,16 +30,16 @@ requirejs([
     program
         .command('pr')
         .description('Operate on Pull Requests')
-        .option('-l, --list', 'List only my Open Pull Requests')
+        .option('-l, --list [username]', 'List only my Open Pull Requests')
         .option('-L, --listall', 'List all Open Pull Requests')
         .option('-G, --global', 'List all my Open Pull Requests across all repo')
         .option('-r, --review', 'List all Open Pull Requests to be reviewed by me')
-        .option('-b, --by <username>', 'List all Open Pull Requests created by username', String)
         .option('-M, --merged', 'List Merged Pull Requests')
         .option('-m, --merge <pr_num>', 'Merge Pull Request', String)
         .option('-S, --merge_strategy <Strategy>', 'Merging Strategy for Pull Requests (merge_commit/squash)', String)
         .option('-M, --message <pr_num>', 'Message for merge/creating PR', String)
         .option('-c, --create ', 'Create Pull Request')
+        .option('-C, --current ', 'List Pull Request for current branch')
         .option('-s, --source <branch name>', 'Source Branch', String)
         .option('-t, --to <branch name>', 'Destination Branch', String)
         .option('-d, --diff <pr_num>', 'Diff Pull Request', String)
@@ -60,8 +60,8 @@ requirejs([
                     if (options.review) {
                         pr.list(options, finalCb);
                     }
-                    if (options.by) {
-                        pr.list(options, finalCb);
+                    if (options.current) {
+                        pr.getPRForCurrentBranch(options, finalCb);
                     }
                     if (options.global) {
                         pr.globalList(options, finalCb);
