@@ -35,7 +35,7 @@ requirejs([
         .option('-G, --global', 'List all my Open Pull Requests across all repo')
         .option('-r, --review', 'List all Open Pull Requests to be reviewed by me')
         .option('-M, --merged', 'List Merged Pull Requests')
-        .option('-m, --merge <pr_num>', 'Merge Pull Request', String)
+        .option('-m, --merge [pr_num]', 'Merge Pull Request', String)
         .option('-S, --merge_strategy <Strategy>', 'Merging Strategy for Pull Requests (merge_commit/squash)', String)
         .option('-M, --message <pr_num>', 'Message for merge/creating PR', String)
         .option('-c, --create ', 'Create Pull Request')
@@ -85,7 +85,7 @@ requirejs([
                         pr.approve(options);
                     }
                     if (options.merge) {
-                        pr.merge(options);
+                        pr.merge(options, finalCb);
                     }
                     if (options.open) {
                         pr.open(options);
