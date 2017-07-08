@@ -47,7 +47,7 @@ requirejs([
         .option('-a, --activity <pr_num>', 'Activity on Pull Request', String)
         .option('-A, --approve <pr_num>', 'Approve the  Pull Request', String)
         .option('-D, --decline <pr_num>', 'Decline Pull Request', String)
-        .option('-o, --open <pr_num>', 'Open Pull Request in browser', String)
+        .option('-o, --open [pr_num]', 'Open Pull Request in browser', String)
         .action(function (options) {
             auth.setConfig(function (auth) {
                 if (auth) {
@@ -88,7 +88,7 @@ requirejs([
                         pr.merge(options, finalCb);
                     }
                     if (options.open) {
-                        pr.open(options);
+                        pr.open(options, finalCb);
                     }
                 }
             });
