@@ -55,7 +55,7 @@ First we'll have to take out your username and password from your bitbucket acco
  
 It will prompte you for the repositories subdirectory url.  It auto-supplies the proper bitbucket api URL prefix
 
-    Team subdir URL: https://api.bitbucket.org/2.0/repositories/+
+	Team subdir URL: https://api.bitbucket.org/2.0/repositories/+
   * now enter the teamname for Eg. phase2tech
   * repo name is automatically picked from current working directory
 
@@ -203,21 +203,25 @@ For example the pr command has these options
 
   Options:
 
-
     -h, --help                       output usage information
-    -l, --list                       List Open Pull Requests
-    -r, --merged                     List Merged Pull Requests
-    -m, --merge <pr_num>             Merge Pull Request
+    -l, --list [username]            List only my Open Pull Requests
+    -L, --listall                    List all Open Pull Requests
+    -G, --global                     List all my Open Pull Requests across all repo
+    -r, --review                     List all Open Pull Requests to be reviewed by me
+    -M, --merged                     List Merged Pull Requests
+    -m, --merge [pr_num]             Merge Pull Request with pr_num else pull request created from current branch
     -S, --merge_strategy <Strategy>  Merging Strategy for Pull Requests (merge_commit/squash)
     -M, --message <pr_num>           Message for merge/creating PR
-    -c, --create <title>             Create Pull Request
-    -s, --source <branch name>       Source Branch
-    -t, --to <branch name>           Destination Branch
+    -c, --create                     Create Pull Request or update the pull request
+    -C, --current                    List Pull Request for current branch
+    -s, --source <branch name>       Source Branch from which pr should be created
+    -t, --to <branch name>           Destination Branch to which pr should be merged to
     -d, --diff <pr_num>              Diff Pull Request
     -p, --patch <pr_num>             Patch Pull Request
     -a, --activity <pr_num>          Activity on Pull Request
     -A, --approve <pr_num>           Approve the  Pull Request
     -D, --decline <pr_num>           Decline Pull Request
+    -o, --open [pr_num]              Open Pull Request in browser with pr_num else open the pull request with current branch
 
 ```
 Usage:
