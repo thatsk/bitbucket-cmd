@@ -48,6 +48,7 @@ requirejs([
         .option('-A, --approve <pr_num>', 'Approve the  Pull Request', String)
         .option('-D, --decline <pr_num>', 'Decline Pull Request', String)
         .option('-o, --open [pr_num]', 'Open Pull Request in browser with pr_num else open the pull request with current branch', String)
+        .option('-O, --checkout <pr_num>', 'Checkout to PRs branch', String)
         .action(function (options) {
             auth.setConfig(function (auth) {
                 if (auth) {
@@ -89,6 +90,9 @@ requirejs([
                     }
                     if (options.open) {
                         pr.open(options, finalCb);
+                    }
+                    if (options.checkout) {
+                        pr.checkout(options, finalCb);
                     }
                 }
             });
