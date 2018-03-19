@@ -20,8 +20,11 @@ requirejs([
     '../lib/auth',
     '../lib/bitbucket/pr',
 ], function (program, config, auth, pr) {
-     function finalCb(){
-       process.exit();
+     function finalCb(err){
+       if(err){
+         process.exit(1);
+       }
+       process.exit(0);
      }
      
     program
