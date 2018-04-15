@@ -28,7 +28,6 @@ Then, in your shell type:
 	$ npm install -g cmd-bitbucket
 
 ## Usage
-
 ##### Getting the username and password
   * Getting username is easy
 	* Click on your photo in the down left corner
@@ -69,6 +68,42 @@ Once you hit enter after the password then you should get this message:
     Information stored!
 
 This saves your credentials in the [home directory](https://github.com/danshumaker/cmd-bitbucket/pull/2) in a config rc `~/.bitbucketconfigrc` file.
+
+### Basic commands
+
+### Creating pull request
+You must know following things before creating a pull request.
+
+* For. eg. You are working on a **feature branch F1** and you are making changes to this F1 branch. you know that once your changes are done and reviewed, you will **merge this branch to master branch**.   
+  * `Source branch`:  branch on which you would make the changes to. In this case F1 branch . **default is current working branch**
+  * `Target branch`: branch to which your changes would be merged to after PR is merged. In this case master branch. **default is master branch**  
+	  * so you would issue the command <kbd>bitbucket pr -c -s F1 -t master</kbd> 
+	* most of the time we want to make PR from current branch as sourcee branch and would want to merge the PR in master branch. In this case we would issue the command <kbd>bitbucket pr -c</kbd> .
+
+### Listing Pull requests in repository
+  * <kbd>bitbucket pr -l</kbd> :  if you are running this for the first time, then it might ask you to use default config, by pressing y and pressing enter, you would get an output of all open PR made by you in that repository.
+  * <kbd>bitbucket pr -l `BITBUCKET_USER_NAME`</kbd> :  would list the pull requests created by given username in current repository.
+
+### Listing the Pull requests that you have to review in the current repository
+  * <kbd>bitbucket pr -r</kbd> : would list the PR which you have to review in current repository.
+  * <kbd>bitbucket pr -r `BITBUCKET_USER_NAME`</kbd> : would list the pull requests that given bitbucket user has to review
+  
+### Merging a pull request
+  * If you want to merge the pull request corresponding to the current active branch of current repository. then you have to issue command <kbd>bitbucket pr -m</kbd> .
+  * If you want to merge some other pull request of current branch, then you need to know its pull request number. then you would issue the command <kbd>bitbucket pr -m `PULL_REQUEST_NUMBER`</kbd>
+  * There are two types of merge strategy in bitbucket
+	* `Squash commit` : for merging a pull request squashing all the commits, you would issue the command <kbd>bitbucket pr -m -S squash</kbd> or <kbd>bitbucket pr -m</kbd> (since squash commit is default merge strategy).
+	* `merge commit` : another merge strategy is merge_commit . for merging with `merge_commit` strategy , you need to issue the command <kbd>bitbucket pr -m -S merge_commit</kbd>.
+  
+### Approving a pull request
+  * <kbd>bitbucket pr -A PR_NUMBER</kbd> : would approve the pull request with given PR number
+
+### Diff of Pull request
+  * many a times some PR are very small, you can see their diff by issuing the command <kbd>bitbucket pr -d PR_NUMBER</kbd>
+  
+### Open pull request in browser
+  * <kbd>bitbucket pr -o</kbd> would open the pull request corresponding to current branch of current repository in browser.
+  * <kbd>bitbucket pr -o PR_NUMBER</kbd>: would open the PR corresponding to given PR number in browser.
 
 #### Reviewers [Change the reviewers in the ~/.bitbucketconfigrc file]
 
